@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h6 class="text-right"></h6>
+        <h1 class="text-capitalize text-center">Purchase</h1>
+        <h3 class="text-center">Main Outlet</h3>
+        <hr/>
+        <p class="text-justify"></p>
+    </div>
+    <h6>Checkout List</h6>
+    <div class="table-responsive my-container" id="cart">
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Item ID</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of getItems()" class="table-secondary">
+                <td>{{item.itemCode.itemCode}}</td>
+                <td>{{item.itemCode.itemName}}</td>
+                <td>{{item.unitPrice}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.total}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /search -->
+    <br>
+    <!-- cart -->
+
+    <!--        /cart -->
+    <br>
+</div>
+<!--        buttons-->
+<label class="checkout">Total No. of Items : {{salesCart.length}}</label>
+<br>
+<!--<label class="checkout">Discounts : Rs.500</label>-->
+<!--<br>-->
+<label class="checkout">Total : Rs.{{total}}</label>
+
+<!--Buttons-->
+<button class="btn btn-primary fa-pull-right btnSpacing" (click)="updateDatabase()" [routerLink]="['/sales']" >Checkout</button>
+
+<button class="btn btn-secondary fa-pull-right btnSpacing">Back</button>
+<button class="btn btn-danger fa-pull-right btnSpacing">Cancel</button>
+
+<div class="col-md-1"></div>
+

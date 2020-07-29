@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h2>Add To Cart</h2>
+    <button aria-label="Close" data-dismiss="modal" class="close" type="button">
+        <span aria-hidden="true">x</span>
+    </button>
+
+</div>
+<div class="modal-body">
+    <div class="col-md-12">
+        <form class="form" role="form">
+            <div class="form-group">
+                <label class="username-label">Item Name : </label>
+                <input type="text" class="form-control"  value="{{salesData.getReviewItem().itemName}}" disabled="">
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="username-label">Unit Price : </label>
+                        <input type="number" class="form-control" [(ngModel)]="unitPrice" [ngModelOptions]="{standalone:true}"  (input)="calculateTotal()" >
+                    </div>
+                    <div class="col-md-6">
+                        <label class="username-label">Quantity : </label>
+                        <input type="number" class="form-control" [(ngModel)]="units" [ngModelOptions]="{standalone:true}" (input)="calculateTotal()" >
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">Total : {{total}}</p>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="quantityError">{{message}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary"  (click)="addToCart()">Add to Cart</button>
+        </form>
+
+
+    </div>
+</div>

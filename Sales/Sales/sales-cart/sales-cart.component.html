@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-12"></div>
+    <div class="col-md-12">
+        <h2 class="text-left">Sales</h2>
+
+        <div class="form-group">
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label class="col-form-label">Item Name : </label>
+                    <input class="form-control" type="text" [(ngModel)]="itemName" (input)="search()"> <label
+                    class="space"></label>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-form-label">Item Code : </label>
+                    <input class="form-control" type="text" [(ngModel)]="itemCode" (input)="search()"> <label
+                    class="space"></label>
+                </div>
+            </div>
+            <!-- search -->
+            <h6>Matches : </h6>
+            <div class="table-responsive my-container" id="matches">
+            <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item ID</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Available Quantity</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-secondary" *ngFor="let items of searchItems">
+                        <td>{{items.itemCode}}</td>
+                        <td>{{items.itemName}}</td>
+                        <td>{{items.buyingPrice}}</td>
+                        <td>{{items.quantity}}</td>
+                        <td><button class="btn-sm btn-primary" (click)="addToCart(items)">Add</button></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <!--/search-->
+            <!--cart -->
+            <h6>Cart : </h6>
+
+            <div class="table-responsive my-container" id="cart">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item ID</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="table-secondary" *ngFor="let items of salesData.cart">
+                        <td>{{items.itemCode.itemCode}}</td>
+                        <td>{{items.unitPrice}}</td>
+                        <td>{{items.quantity}}</td>
+                        <td>{{items.total}}</td>
+                        <td><button class="btn-sm btn-danger">Remove</button></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <!--/cart -->
+        </div>
+        <!--buttons-->
+
+        <button class="btn btn-secondary" [routerLink]="['']">Cancel</button>
+        <button class="btn btn-primary" [routerLink]="['../customer-details/new']">Proceed</button>
+
+        <!--     /buttons   -->
+    </div>
+    <div class="col-md-1"></div>
+</div>
